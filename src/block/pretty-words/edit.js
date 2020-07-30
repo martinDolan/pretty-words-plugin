@@ -36,9 +36,10 @@ const getThesaurusWords = ( term ) => {
 		.then( ( json ) => {
 			const arr = [];
 			arr.push( ...json[ 0 ].meta.syns[ 0 ] );
-
+			console.log( arr );
 		} );
-	setAttributes( { availableWords: arr } );
+
+	//setAttributes( { availableWords: arr } );
 };
 
 const MyCustomButton = ( props ) => {
@@ -62,7 +63,7 @@ registerFormatType(
 );
 
 const Edit = ( props ) => {
-	console.log( 'edit: ', props );
+
 	const {
 		attributes: {
 			content,
