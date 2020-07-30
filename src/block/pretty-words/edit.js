@@ -7,21 +7,22 @@ import apiFetch from '@wordpress/api-fetch';
 import { registerFormatType, toggleFormat } from '@wordpress/rich-text';
 import { RichTextToolbarButton } from '@wordpress/block-editor';
 
-const test = apiFetch( { path: '/wp/v2/posts' } ).then( ( posts ) => {
-	console.log( posts );
-} );
-
 const changeThisWord = ( props ) => {
-	console.log( props );
 
-	//This controls how the format is applied.
+	const fullString = props.value.text;
+	const startChar = props.value.start;
+	const endChar = props.value.end;
+	const stringLen = endChar - startChar;
 
-	console.log( props.value );
+	const selectedWord = fullString.substr( startChar, stringLen );
+
+	getThesaurusWords( selectedWord, props );
+
 	const newFormat = {
 		...props.value, // original formats object.
 		end: props.value.end - 1,
 	};
-	console.log( 'newFormat', newFormat );
+
 	props.onChange( toggleFormat(
 		newFormat,
 		{ type: 'my-custom-format/thesaurus-button' }
@@ -29,17 +30,15 @@ const changeThisWord = ( props ) => {
 };
 
 const getThesaurusWords = ( term ) => {
-	const test = fetch( `https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${ term }?key=${ moconnorPrettyWordsEditor.dictionaryApiComKey }` )
+
+	fetch( `https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${ term }?key=${ moconnorPrettyWordsEditor.dictionaryApiComKey }` )
 		.then( ( response ) => response.json() )
 		.then( ( json ) => {
-
 			const arr = [];
-
 			arr.push( ...json[ 0 ].meta.syns[ 0 ] );
 
-			// setAttributes( { availableWords: { arr } } );
-			 console.log( arr );
 		} );
+	setAttributes( { availableWords: arr } );
 };
 
 const MyCustomButton = ( props ) => {
@@ -53,37 +52,17 @@ const MyCustomButton = ( props ) => {
 	/>;
 };
 
-// const MyCustomButton = (props) => {
-// 	return <RichTextToolbarButton
-// 		icon='editor-code'
-// 		title='Sample output'
-// 		onClick={() => {
-// 			// This controls how the format is applied.
-// 			console.log(props.value);
-// 			const newFormat = {
-// 				...props.value, // original formats object.
-// 				end: props.value.end - 1,
-// 			};
-// 			console.log('newFormat', newFormat);
-// 			props.onChange(toggleFormat(
-// 				newFormat,
-// 				{ type: 'my-custom-format/sample-output' }
-// 			));
-// 		}}
-// 		isActive={props.isActive}
-// 	/>;
-// };
-
 registerFormatType(
 	'my-custom-format/thesaurus-button', {
 		title: 'Change This',
-		tagName: 'span',
+		tagName: 'thesaurus',
 		className: null,
 		edit: MyCustomButton,
 	}
 );
 
 const Edit = ( props ) => {
+	console.log( 'edit: ', props );
 	const {
 		attributes: {
 			content,
@@ -99,11 +78,7 @@ const Edit = ( props ) => {
 	};
 
 	return (
-		<button
-			onClick={ getThesaurusWords }
-		>
-			Get Data
-		</button>
+		<div>Hi</div>
 	);
 };
 
