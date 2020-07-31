@@ -3,6 +3,7 @@
  */
 import edit from './edit';
 import save from './save';
+import sidebar from './sidebar';
 
 // import changeThisWord from './edit';
 // import getThesaurusWords from './edit';
@@ -19,17 +20,13 @@ registerBlockType( 'moconnor/pretty-words', {
 		__( 'PrettyWords', 'pretty-words' ),
 	],
 	attributes: {
-		content: {
-			type: 'array',
-			source: 'children',
-			selector: 'p',
-		},
 		availableWords: {
 			type: 'array',
 			default: 'yo',
 			content: '',
 		},
 	},
+	sidebar,
 	edit,
 	save,
 } );
