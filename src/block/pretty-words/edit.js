@@ -6,37 +6,13 @@ import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 import { registerFormatType, toggleFormat } from '@wordpress/rich-text';
 import { useState } from '@wordpress/element';
+import { Button, Modal } from '@wordpress/components';
 import icon from './icon';
 
 const { Fragment } = wp.element;
 const { registerPlugin } = wp.plugins;
 const { PluginSidebar, PluginSidebarMoreMenuItem } = wp.editPost;
 const { PanelBody, PanelRow } = wp.components;
-
-const ThesaurusSidebar = ( props ) => {
-	return (
-		<Fragment>
-			<PluginSidebarMoreMenuItem target="thesaurus-sidebar">
-				{ __( 'Pretty Words', 'thesaurus-block' ) }
-			</PluginSidebarMoreMenuItem>
-			<PluginSidebar
-				name="thesaurus-sidebar"
-				title={ __( 'Pretty Words', 'thesaurus-block' ) }
-			>
-				<PanelBody>
-					<PanelRow>
-
-					</PanelRow>
-				</PanelBody>
-			</PluginSidebar>
-		</Fragment>
-	);
-};
-
-registerPlugin( 'thesaurus-sidebar', {
-	icon,
-	render: ThesaurusSidebar,
-} );
 
 const Edit = ( props ) => {
 
