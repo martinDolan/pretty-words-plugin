@@ -79,7 +79,7 @@ const Edit = ( props ) => {
 	};
 
 	return (
-		<div>Hi</div>
+		<div></div>
 	);
 };
 
