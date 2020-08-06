@@ -8,13 +8,14 @@ import { registerFormatType, toggleFormat } from '@wordpress/rich-text';
 import { useState } from '@wordpress/element';
 import { Button, Modal, Popover } from '@wordpress/components';
 import icon from './icon';
+import SynonymSelector from './components/SynonymSelector';
 
 const { Fragment } = wp.element;
 const { registerPlugin } = wp.plugins;
 const { PluginSidebar, PluginSidebarMoreMenuItem } = wp.editPost;
 const { PanelBody, PanelRow } = wp.components;
 const { registerStore, select, dispatch, withSelect } = wp.data;
-const { compose } = wp.compose;
+const { compose, withState } = wp.compose;
 
 // set default state
 const DEFAULT_STATE = {
@@ -104,54 +105,38 @@ const MyModal = () => {
 
 const changeThisWord = ( props ) => {
 
-	const fullString = props.value.text;
-	const startChar = props.value.start;
-	const endChar = props.value.end;
-	const stringLen = endChar - startChar;
+	// console.log( props );
+	// const fullString = props.value.text;
+	// const startChar = props.value.start;
+	// const endChar = props.value.end;
+	// const stringLen = endChar - startChar;
 
-	const selectedWord = fullString.substr( startChar, stringLen );
-	console.log( selectedWord );
+	// const selectedWord = fullString.substr( startChar, stringLen );
+	// console.log( selectedWord );
 
-	getThesaurusWords( selectedWord );
+	// getThesaurusWords( selectedWord );
 
-	const newFormat = {
-		...props.value, // original formats object.
-		// end: props.value.end - 1,
-		end: endChar,
-	};
+	// const newFormat = {
+	// 	...props.value, // original formats object.
+	// 	// end: props.value.end - 1,
+	// 	end: endChar,
+	// };
 
-	props.onChange( toggleFormat(
-		newFormat,
-		{ type: 'my-custom-format/thesaurus-button' }
-	) );
+	// props.onChange( toggleFormat(
+	// 	newFormat,
+	// 	{ type: 'my-custom-format/thesaurus-button' }
+	// ) );
 };
 
-const getThesaurusWords = async ( term ) => {
-	const words = await fetch( `https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${ term }?key=daf2b265-1b1c-47d7-abc9-947948a68aab` )
-		.then( ( response ) => response.json() )
-		.then( ( json ) => {
-			const arr = [];
-			arr.push( ...json[ 0 ].meta.syns[ 0 ] );
-			return arr;
-		} );
+const MyCustomButton = withState( {
+	isChoosingSynonym: false,
+} )( ( props ) => {
 
-	// set state
-	// setThesaurusWords( words );
-};
-
-// const MyCustomButton = ( props ) => {
-
-// 	return <RichTextToolbarButton
-// 		icon="editor-code"
-// 		title="Change This"
-// 		onClick={ openMyModal( props ) }
-// 		isActive={ props.isActive }
-// 	>
-
-// 	</RichTextToolbarButton>;
-// };
-
-const MyCustomButton = ( props ) => {
+	const {
+		setState,
+		isActive,
+		isChoosingSynonym,
+	} = props;
 
 	return (
 		<>
@@ -159,16 +144,27 @@ const MyCustomButton = ( props ) => {
 				icon="editor-code"
 				title="Change This"
 				onClick={ () => {
-					changeThisWord( props );
+					setState( {
+						isChoosingSynonym: true,
+					} );
 				} }
-				isActive={ props.isActive }
+				isActive={ isActive }
 			/>
-			<Popover>
+			{ isChoosingSynonym && ( <Popover>
 				{ 'hello world' }
-			</Popover>
+				<SynonymSelector
+					originalWord={ 'very' }
+					newWordSetter={ ( newWord ) => {
+						console.log( `Setting newWord to: ${ newWord }` );
+						setState( {
+							isChoosingSynonym: false,
+						} );
+					} }
+				/>
+			</Popover> ) }
 		</>
 	);
-};
+} );
 
 registerFormatType(
 	'my-custom-format/thesaurus-button', {
