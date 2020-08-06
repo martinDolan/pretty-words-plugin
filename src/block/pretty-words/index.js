@@ -25,6 +25,10 @@ registerBlockType( 'moconnor/pretty-words', {
 			default: 'yo',
 			content: '',
 		},
+		test: {
+			type: 'string',
+			default: 'testymctest',
+		},
 	},
 	sidebar,
 	edit,
