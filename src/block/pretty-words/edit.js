@@ -6,7 +6,7 @@ import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 import { registerFormatType, toggleFormat } from '@wordpress/rich-text';
 import { useState } from '@wordpress/element';
-import { Button, Modal } from '@wordpress/components';
+import { Button, Modal, Popover } from '@wordpress/components';
 import icon from './icon';
 
 const { Fragment } = wp.element;
@@ -139,28 +139,35 @@ const getThesaurusWords = async ( term ) => {
 	// setThesaurusWords( words );
 };
 
-// console.log( thesaurusWords );
-
 // const MyCustomButton = ( props ) => {
 
 // 	return <RichTextToolbarButton
 // 		icon="editor-code"
 // 		title="Change This"
-// 		onClick={ () => {
-// 			changeThisWord( props );
-// 		} }
+// 		onClick={ openMyModal( props ) }
 // 		isActive={ props.isActive }
-// 	/>;
+// 	>
+
+// 	</RichTextToolbarButton>;
 // };
 
 const MyCustomButton = ( props ) => {
 
-	return <RichTextToolbarButton
-		icon="editor-code"
-		title="Change This"
-		onClick={ openMyModal( props ) }
-		isActive={ props.isActive }
-	/>;
+	return (
+		<>
+			<RichTextToolbarButton
+				icon="editor-code"
+				title="Change This"
+				onClick={ () => {
+					changeThisWord( props );
+				} }
+				isActive={ props.isActive }
+			/>
+			<Popover>
+				{ 'hello world' }
+			</Popover>
+		</>
+	);
 };
 
 registerFormatType(
