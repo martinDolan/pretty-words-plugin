@@ -103,7 +103,6 @@ const MyCustomButton = withState( {
 					} );
 				} }
 			>
-				{ 'hello world' }
 				<SynonymSelector
 					originalWord={ 'very' }
 					newWordSetter={ ( newWord ) => {
