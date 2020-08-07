@@ -26,12 +26,15 @@ const SynonymSelector = withState( {
 
 		const { originalWord } = props;
 
-		const wordChoices = getChoices( originalWord );
+		getChoices( originalWord )
+			.then(
+				( wordChoices ) => {
+					setState( {
+						choices: wordChoices,
+					} );
+				}
+			);
 
-		setState( {
-			choices: wordChoices,
-		} );
-		console.log( originalWord );
 	}, [] );
 
 	const {
