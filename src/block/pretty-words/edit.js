@@ -56,8 +56,8 @@ const MyCustomButton = withState( {
 	return (
 		<>
 			<RichTextToolbarButton
-				icon="editor-code"
-				title="Change This"
+				icon="welcome-learn-more"
+				title="Use a Better Word"
 				onClick={ () => {
 					setState( {
 						isChoosingSynonym: true,
