@@ -1,5 +1,5 @@
 
-import { Button } from '@wordpress/components';
+import { Button, SelectControl } from '@wordpress/components';
 
 const getThesaurusWords = async ( term ) => {
 	const words = await fetch(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${term}?key=${moconnorPrettyWordsEditor.dictionaryApiComKey }` )
@@ -17,16 +17,26 @@ const getThesaurusWords = async ( term ) => {
 const SynonymSelector = ( props ) => {
 	console.log( props );
 	return (
-		<Button
-			onClick={ () => {
-				console.log(
-					'synonym selector has been clicked',
-					{ props }
-				);
-				props.newWordSetter( 'much' );
+		<>
+			<SelectControl
+				label="Very"
+				options={ [
+					{ label: 'Much', value: '100%' },
+					{ label: 'Extra', value: '50%' },
+					{ label: 'Extreme', value: '25%' },
+				] }
+			/>
+			<Button
+				onClick={ () => {
+					console.log(
+						'synonym selector has been clicked',
+						{ props }
+					);
+					props.newWordSetter( 'much' );
 
-			} }
-		>Click me!</Button>
+				} }
+			>Click me!</Button>
+		</>
 	);
 };
 
