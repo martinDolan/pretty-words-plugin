@@ -2,6 +2,7 @@
 import { Button, SelectControl } from '@wordpress/components';
 import { withState } from '@wordpress/compose';
 import { useEffect } from '@wordpress/element';
+import getChoices from '../utils/getChoices';
 
 const getThesaurusWords = async ( term ) => {
 	const words = await fetch(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${term}?key=${moconnorPrettyWordsEditor.dictionaryApiComKey }` )
@@ -22,14 +23,15 @@ const SynonymSelector = withState( {
 } )( ( props ) => {
 
 	useEffect( () => {
+
+		const { originalWord } = props;
+
+		const wordChoices = getChoices( originalWord );
+
 		setState( {
-			choices: [
-				{ label: 'Much', value: 'Much' },
-				{ label: 'Extra', value: 'Extra' },
-				{ label: 'Extreme', value: 'Extreme' },
-			],
+			choices: wordChoices,
 		} );
-		console.log( 'component mounted, synonym selector', props );
+		console.log( originalWord );
 	}, [] );
 
 	const {
