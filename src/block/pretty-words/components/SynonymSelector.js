@@ -40,6 +40,7 @@ const SynonymSelector = withState( {
 					} );
 				} }
 			/>
+
 			<Button
 				onClick={ () => {
 					console.log(
@@ -49,7 +50,10 @@ const SynonymSelector = withState( {
 					props.newWordSetter( replacementWord );
 
 				} }
-			>Click me!</Button>
+			>
+				Click me!
+			</Button>
+
 		</>
 	);
 } );
