@@ -1,5 +1,6 @@
 
 import { Button, SelectControl } from '@wordpress/components';
+import { withState } from '@wordpress/compose';
 
 const getThesaurusWords = async ( term ) => {
 	const words = await fetch(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${term}?key=${moconnorPrettyWordsEditor.dictionaryApiComKey }` )
@@ -14,18 +15,30 @@ const getThesaurusWords = async ( term ) => {
 	// setThesaurusWords( words );
 };
 
-const SynonymSelector = ( props ) => {
-	console.log( props );
+const SynonymSelector = withState( {
+	replacementWord: '',
+} )( ( props ) => {
+
+	const {
+		replacementWord,
+		setState,
+	} = props;
+
 	return (
 		<>
 
 			<SelectControl
 				label={ `Choose word to replace: ${ props.originalWord }` }
 				options={ [
-					{ label: 'Much', value: '100%' },
-					{ label: 'Extra', value: '50%' },
-					{ label: 'Extreme', value: '25%' },
+					{ label: 'Much', value: 'Much' },
+					{ label: 'Extra', value: 'Extra' },
+					{ label: 'Extreme', value: 'Extreme' },
 				] }
+				onChange={ ( value ) => {
+					setState( {
+						replacementWord: value,
+					} );
+				} }
 			/>
 			<Button
 				onClick={ () => {
@@ -33,12 +46,12 @@ const SynonymSelector = ( props ) => {
 						'synonym selector has been clicked',
 						{ props }
 					);
-					props.newWordSetter( 'much' );
+					props.newWordSetter( replacementWord );
 
 				} }
 			>Click me!</Button>
 		</>
 	);
-};
+} );
 
 export default SynonymSelector;

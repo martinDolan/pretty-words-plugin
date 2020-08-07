@@ -104,7 +104,7 @@ const MyCustomButton = withState( {
 				} }
 			>
 				<SynonymSelector
-					originalWord={ 'very' }
+					originalWord={ 'very test' }
 					newWordSetter={ ( newWord ) => {
 						console.log( `Setting newWord to: ${ newWord }` );
 						setState( {
