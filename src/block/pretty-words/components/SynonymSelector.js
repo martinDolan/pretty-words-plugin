@@ -4,19 +4,6 @@ import { withState } from '@wordpress/compose';
 import { useEffect } from '@wordpress/element';
 import getChoices from '../utils/getChoices';
 
-const getThesaurusWords = async ( term ) => {
-	const words = await fetch(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${term}?key=${moconnorPrettyWordsEditor.dictionaryApiComKey }` )
-		.then( ( response ) => response.json() )
-		.then( ( json ) => {
-			const arr = [];
-			arr.push( ...json[ 0 ].meta.syns[ 0 ] );
-			return arr;
-		} );
-
-	// set state
-	// setThesaurusWords( words );
-};
-
 const SynonymSelector = withState( {
 	choices: [],
 	replacementWord: '',
