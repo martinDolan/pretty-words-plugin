@@ -129,7 +129,7 @@ const changeThisWord = ( props ) => {
 };
 
 const MyCustomButton = withState( {
-	isChoosingSynonym: false,
+	isChoosingSynonym: true,
 } )( ( props ) => {
 
 	const {
