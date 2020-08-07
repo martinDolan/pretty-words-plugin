@@ -150,7 +150,13 @@ const MyCustomButton = withState( {
 				} }
 				isActive={ isActive }
 			/>
-			{ isChoosingSynonym && ( <Popover>
+			{ isChoosingSynonym && ( <Popover
+				onFocusOutside={ () => {
+					setState( {
+						isChoosingSynonym: false,
+					} );
+				} }
+			>
 				{ 'hello world' }
 				<SynonymSelector
 					originalWord={ 'very' }
