@@ -16,10 +16,16 @@ const getThesaurusWords = async ( term ) => {
 };
 
 const SynonymSelector = withState( {
+	choices: [
+		{ label: 'Much', value: 'Much' },
+		{ label: 'Extra', value: 'Extra' },
+		{ label: 'Extreme', value: 'Extreme' },
+	],
 	replacementWord: '',
 } )( ( props ) => {
 
 	const {
+		choices,
 		replacementWord,
 		setState,
 	} = props;
@@ -29,11 +35,7 @@ const SynonymSelector = withState( {
 
 			<SelectControl
 				label={ `Choose word to replace: ${ props.originalWord }` }
-				options={ [
-					{ label: 'Much', value: 'Much' },
-					{ label: 'Extra', value: 'Extra' },
-					{ label: 'Extreme', value: 'Extreme' },
-				] }
+				options={ choices }
 				onChange={ ( value ) => {
 					setState( {
 						replacementWord: value,
