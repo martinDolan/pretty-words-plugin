@@ -18,8 +18,9 @@ const SynonymSelector = ( props ) => {
 	console.log( props );
 	return (
 		<>
+
 			<SelectControl
-				label="Very"
+				label={ `Choose word to replace: ${ props.originalWord }` }
 				options={ [
 					{ label: 'Much', value: '100%' },
 					{ label: 'Extra', value: '50%' },
