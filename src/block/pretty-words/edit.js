@@ -6,8 +6,7 @@ import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 import { registerFormatType, toggleFormat } from '@wordpress/rich-text';
 import { useState } from '@wordpress/element';
-import { Button, Modal, Popover } from '@wordpress/components';
-import icon from './icon';
+import { Popover } from '@wordpress/components';
 import SynonymSelector from './components/SynonymSelector';
 
 const { Fragment } = wp.element;
@@ -16,36 +15,6 @@ const { PluginSidebar, PluginSidebarMoreMenuItem } = wp.editPost;
 const { PanelBody, PanelRow } = wp.components;
 const { registerStore, select, dispatch, withSelect } = wp.data;
 const { compose, withState } = wp.compose;
-
-const openMyModal = ( props ) => {
-	console.log( props );
-	console.log( 'fired' );
-	dispatch( 'marty/modal' ).openModal();
-};
-
-// console.log( test );
-
-const MyModal = () => {
-
-	const [ isOpen, setOpen ] = useState( false );
-	const openModal = () => setOpen( true );
-	const closeModal = () => setOpen( false );
-
-	return (
-		<>
-			<Button isSecondary onClick={ openModal }>Open Modal</Button>
-			{ isOpen && (
-				<Modal
-					title="This is my modal"
-					onRequestClose={ closeModal }>
-					<Button isSecondary onClick={ closeModal }>
-						My custom close button
-					</Button>
-				</Modal>
-			) }
-		</>
-	);
-};
 
 // const [ thesaurusWords, setThesaurusWords ] = useState( [] );
 
@@ -143,7 +112,7 @@ const Edit = ( props ) => {
 	// ])
 
 	return (
-		<div><MyModal /></div>
+		<div></div>
 	);
 };
 
