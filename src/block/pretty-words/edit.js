@@ -17,60 +17,6 @@ const { PanelBody, PanelRow } = wp.components;
 const { registerStore, select, dispatch, withSelect } = wp.data;
 const { compose, withState } = wp.compose;
 
-// set default state
-const DEFAULT_STATE = {
-	isOpen: false,
-};
-
-const actions = {
-
-	// open modal action
-	openModal( input ) {
-		return {
-			type: 'OPEN_MODAL',
-			input,
-		};
-	},
-
-	//close modal action
-	closeModal( input ) {
-		return {
-			type: 'CLOSE_MODAL',
-			input,
-		};
-	},
-
-	// close modal
-};
-
-//Use registerStore to add own store to centralized data registery
-registerStore( 'marty/modal', {
-
-	// how state represented
-	//how state modified
-	//how state accessed
-
-	// at minimum provide a reducer
-	//reducer describes shape of state
-	// and how it responds to actions dispatched to store
-	reducer( state = DEFAULT_STATE, action ) {
-		switch ( action.type ) {
-			case 'OPEN_MODAL':
-				return {
-					...state,
-					input: action.input,
-				};
-		}
-
-		return state;
-	},
-	actions,
-} );
-
-// const openModalFunc = () => {
-// 	dispatch( 'martymodal' ).openModal();
-// };
-
 const openMyModal = ( props ) => {
 	console.log( props );
 	console.log( 'fired' );
