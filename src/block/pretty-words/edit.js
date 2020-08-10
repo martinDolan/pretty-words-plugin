@@ -53,8 +53,16 @@ const MyCustomButton = withState( {
 		isChoosingSynonym,
 	} = props;
 
-	const setOriginalWord = () => {
-		return 'dog';
+	const setOriginalWord = ( props ) => {
+		console.log( props );
+
+		const fullString = props.value.text;
+		const startChar = props.value.start;
+		const endChar = props.value.end;
+		const stringLen = endChar - startChar;
+		const selectedWord = fullString.substr( startChar, stringLen );
+
+		return selectedWord;
 	};
 
 	return (
@@ -77,7 +85,7 @@ const MyCustomButton = withState( {
 				} }
 			>
 				<SynonymSelector
-					originalWord={ setOriginalWord() }
+					originalWord={ setOriginalWord( props ) }
 					newWordSetter={ ( newWord ) => {
 						console.log( `Setting newWord to: ${ newWord }` );
 						setState( {
