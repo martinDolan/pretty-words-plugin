@@ -44,7 +44,7 @@ const changeThisWord = ( props ) => {
 };
 
 const MyCustomButton = withState( {
-	isChoosingSynonym: true,
+	isChoosingSynonym: false,
 } )( ( props ) => {
 
 	const {
