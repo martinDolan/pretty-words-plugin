@@ -33,7 +33,6 @@ const changeThisWord = ( props ) => {
 
 	// const newFormat = {
 	// 	...props.value, // original formats object.
-	// 	// end: props.value.end - 1,
 	// 	end: endChar,
 	// };
 
