@@ -46,6 +46,7 @@ const SynonymSelector = withState( {
 			/>
 
 			<Button
+				disabled={ '' === replacementWord }
 				onClick={ () => {
 					console.log(
 						'synonym selector has been clicked',
