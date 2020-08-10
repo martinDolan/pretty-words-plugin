@@ -26,6 +26,7 @@ const SynonymSelector = withState( {
 
 	const {
 		choices,
+		newWordSetter,
 		replacementWord,
 		setState,
 	} = props;
@@ -49,7 +50,8 @@ const SynonymSelector = withState( {
 						'synonym selector has been clicked',
 						{ props }
 					);
-					props.newWordSetter( replacementWord );
+
+					newWordSetter( replacementWord );
 
 				} }
 			>
