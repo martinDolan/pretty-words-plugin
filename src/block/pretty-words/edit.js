@@ -53,6 +53,10 @@ const MyCustomButton = withState( {
 		isChoosingSynonym,
 	} = props;
 
+	const setOriginalWord = () => {
+		return 'dog';
+	};
+
 	return (
 		<>
 			<RichTextToolbarButton
@@ -73,7 +77,7 @@ const MyCustomButton = withState( {
 				} }
 			>
 				<SynonymSelector
-					originalWord={ 'very' }
+					originalWord={ setOriginalWord() }
 					newWordSetter={ ( newWord ) => {
 						console.log( `Setting newWord to: ${ newWord }` );
 						setState( {
