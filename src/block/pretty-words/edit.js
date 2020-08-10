@@ -54,14 +54,57 @@ const MyCustomButton = withState( {
 	} = props;
 
 	const setOriginalWord = ( props ) => {
-
 		const fullString = props.value.text;
 		const startChar = props.value.start;
 		const endChar = props.value.end;
 		const stringLen = endChar - startChar;
 		const selectedWord = fullString.substr( startChar, stringLen );
 
+		// const newFormat = {
+		// 	...props.value, // original formats object.
+		// 	end: endChar,
+		// };
+
+		// props.onChange( toggleFormat(
+		// 	newFormat,
+		// 	{ type: 'my-custom-format/thesaurus-button' }
+		// ) );
+		// console.log( props );
+
 		return selectedWord;
+	};
+
+	const switchWord = ( symbol ) => {
+		console.log( { props } );
+		const { start, end, text, formats } = props.value;
+
+		// Insert symbol ticker after the selected text.
+		const newContent = `${ text.substring( 0, start ) }${ symbol }${ text.substring( end ) }`;
+
+		// Insert new format after selected text.
+		const updatedFormats = [].concat(
+			formats.slice( 0, start ), // Elements before insertion.
+			[ ...Array( symbol.length ) ].map( () => [] ), // New elements (each is an empty array).
+			formats.slice( end ), // Elements after insertion.
+		);
+
+		// Properties are offset according to ticker insertion position.
+		const newFormat = {
+			...props.value,
+			formats: updatedFormats,
+			text: newContent,
+			end: parseInt( start + symbol.length ),
+		};
+
+		props.onChange( toggleFormat(
+			newFormat,
+			{ type: 'my-custom-format/thesaurus-button' }
+		) );
+
+		// console.log( newFormat );
+
+		//set new format
+		// return newFormat;
 	};
 
 	return (
@@ -87,6 +130,7 @@ const MyCustomButton = withState( {
 					originalWord={ setOriginalWord( props ) }
 					newWordSetter={ ( newWord ) => {
 						console.log( `Setting newWord to: ${ newWord }` );
+						switchWord( newWord );
 						setState( {
 							isChoosingSynonym: false,
 						} );

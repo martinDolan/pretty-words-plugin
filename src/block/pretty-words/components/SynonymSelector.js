@@ -29,6 +29,7 @@ const SynonymSelector = withState( {
 		newWordSetter,
 		replacementWord,
 		setState,
+		switchWord,
 	} = props;
 
 	return (
