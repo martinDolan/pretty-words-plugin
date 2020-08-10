@@ -54,7 +54,6 @@ const MyCustomButton = withState( {
 	} = props;
 
 	const setOriginalWord = ( props ) => {
-		console.log( props );
 
 		const fullString = props.value.text;
 		const startChar = props.value.start;
