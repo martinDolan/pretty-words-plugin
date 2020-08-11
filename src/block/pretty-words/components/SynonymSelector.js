@@ -18,6 +18,7 @@ const SynonymSelector = withState( {
 				( wordChoices ) => {
 					setState( {
 						choices: wordChoices,
+						replacementWord: wordChoices[ 0 ].value,
 					} );
 				}
 			);
