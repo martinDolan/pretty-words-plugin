@@ -7,6 +7,7 @@ import getChoices from '../utils/getChoices';
 const SynonymSelector = withState( {
 	choices: [],
 	replacementWord: '',
+	noWordsAvailable: false,
 } )( ( props ) => {
 
 	useEffect( () => {
@@ -31,6 +32,7 @@ const SynonymSelector = withState( {
 		replacementWord,
 		setState,
 		switchWord,
+		noWordsAvailable,
 	} = props;
 
 	return (
