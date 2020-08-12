@@ -2,6 +2,8 @@
 
 WordPress plugin to add synonym button
 
+![](https://github.com/martinDolan/pretty-words-plugin/gifs-for-readme/pretty-words-1.gif "Animated gif of plugin in action")
+
 ## Configuration
 
 Add API key via `wp-config.php`
