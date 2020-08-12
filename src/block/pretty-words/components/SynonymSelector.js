@@ -22,6 +22,10 @@ const SynonymSelector = withState( {
 						choices: wordChoices,
 						replacementWord: wordChoices[ 0 ].value,
 					} );
+				}, ( reason ) => {
+					setState( {
+						noWordsAvailable: true,
+					} );
 				}
 			);
 
