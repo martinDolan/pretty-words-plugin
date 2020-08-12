@@ -9,5 +9,17 @@ $color-blue: rgb(33, 175, 194);
 	.components-popover__content {
 		padding: 20px;
 		min-width: 390px;
+		display: flex;
+		flex-direction: column;
+
+		.components-notice__dismiss {
+			align-self: flex-end;
+		}
+
+		.components-button {
+			&.is-primary  {
+				display: inline-block;
+			}
+		}
 	}
 }
