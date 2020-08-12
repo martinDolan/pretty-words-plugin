@@ -86,9 +86,13 @@ const MyCustomButton = withState( {
 				<Button
 					className="components-notice__dismiss"
 					icon="no"
-					onClick={ () => {
-						console.log( 'trying to close' );
-					} }
+					onClick={
+						() => {
+							setState( {
+								isChoosingSynonym: false,
+							} );
+						}
+					}
 				/>
 
 				<SynonymSelector
