@@ -36,7 +36,6 @@ const MyCustomButton = withState( {
 	};
 
 	const switchWord = ( symbol ) => {
-		console.log( { props } );
 		const { start, end, text, formats } = props.value;
 
 		// Insert symbol ticker after the selected text.
