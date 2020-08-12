@@ -43,7 +43,10 @@ const SynonymSelector = withState( {
 	return (
 		<>
 
+			{ noWordsAvailable && (
 				<NoAlternateWordsMessage />
+			) }
+
 			<SelectControl
 				label={ `Choose word to replace: ${ props.originalWord }` }
 				options={ choices }
