@@ -49,8 +49,10 @@ const SynonymSelector = withState( {
 	} else {
 		selectControlUi = (
 			<>
+				<h3>Choose word to replace <span>{ originalWord }</span></h3>
 				<SelectControl
-					label={ `Choose word to replace: ${ originalWord }` }
+					label={ `Choose word to replace ${ originalWord }` }
+					hideLabelFromVision={ true }
 					options={ choices }
 					onChange={ ( value ) => {
 						setState( {

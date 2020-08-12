@@ -12,6 +12,15 @@ $color-blue: rgb(33, 175, 194);
 		display: flex;
 		flex-direction: column;
 
+		h3 {
+			font-weight: 300;
+		}
+
+		span {
+			font-weight: 600;
+			color: #0070a7;
+		}
+
 		.components-notice__dismiss {
 			align-self: flex-end;
 		}
@@ -19,6 +28,16 @@ $color-blue: rgb(33, 175, 194);
 		.components-button {
 			&.is-primary  {
 				display: inline-block;
+			}
+		}
+
+		.components-notice {
+			&.is-dismissible {
+				padding-right: 10px;
+    			margin: 0;
+			}
+			.components-notice__content {
+				margin: 0 33px 0 0;
 			}
 		}
 	}
