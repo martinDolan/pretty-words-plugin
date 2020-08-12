@@ -43,9 +43,7 @@ const SynonymSelector = withState( {
 
 	return (
 		<>
-
 			{ noWordsAvailable && (
-				<NoAlternateWordsMessage />
 				<NoAlternateWordsMessage
 					closeAlert={ closeAlert }
 				/>
