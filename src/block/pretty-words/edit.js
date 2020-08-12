@@ -124,6 +124,7 @@ const MyCustomButton = withState( {
 						isChoosingSynonym: false,
 					} );
 				} }
+				className="popover-dialog"
 			>
 				<SynonymSelector
 					originalWord={ setOriginalWord( props ) }
