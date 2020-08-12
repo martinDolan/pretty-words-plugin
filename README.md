@@ -2,7 +2,7 @@
 
 WordPress plugin to add synonym button
 
-![](https://github.com/martinDolan/pretty-words-plugin/gifs-for-readme/pretty-words-1.gif "Animated gif of plugin in action")
+![](https://github.com/martinDolan/pretty-words-plugin/blob/master/gifs-for-readme/pretty-words-1.gif)
 
 ## Configuration
 
