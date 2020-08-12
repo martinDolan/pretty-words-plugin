@@ -67,7 +67,7 @@ const SynonymSelector = withState( {
 
 					} }
 				>
-					Click me!
+					Use This Word
 				</Button>
 			</>
 		);
