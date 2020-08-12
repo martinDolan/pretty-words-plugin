@@ -41,35 +41,40 @@ const SynonymSelector = withState( {
 		closeAlert,
 	} = props;
 
+	let selectControlUi;
+
+	if ( noWordsAvailable ) {
+		selectControlUi = <NoAlternateWordsMessage closeAlert={ closeAlert } />;
+	} else {
+		selectControlUi = (
+			<>
+				<SelectControl
+					label={ `Choose word to replace: ${ props.originalWord }` }
+					options={ choices }
+					onChange={ ( value ) => {
+						setState( {
+							replacementWord: value,
+						} );
+					} }
+				/>
+
+				<Button
+					disabled={ '' === replacementWord }
+					onClick={ () => {
+
+						newWordSetter( replacementWord );
+
+					} }
+				>
+					Click me!
+				</Button>
+			</>
+		);
+	}
+
 	return (
 		<>
-			{ noWordsAvailable && (
-				<NoAlternateWordsMessage
-					closeAlert={ closeAlert }
-				/>
-			) }
-
-			<SelectControl
-				label={ `Choose word to replace: ${ props.originalWord }` }
-				options={ choices }
-				onChange={ ( value ) => {
-					setState( {
-						replacementWord: value,
-					} );
-				} }
-			/>
-
-			<Button
-				disabled={ '' === replacementWord }
-				onClick={ () => {
-
-					newWordSetter( replacementWord );
-
-				} }
-			>
-				Click me!
-			</Button>
-
+			{ selectControlUi }
 		</>
 	);
 } );
