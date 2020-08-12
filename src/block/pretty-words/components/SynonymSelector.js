@@ -38,6 +38,7 @@ const SynonymSelector = withState( {
 		setState,
 		switchWord,
 		noWordsAvailable,
+		closeAlert,
 	} = props;
 
 	return (
@@ -45,6 +46,9 @@ const SynonymSelector = withState( {
 
 			{ noWordsAvailable && (
 				<NoAlternateWordsMessage />
+				<NoAlternateWordsMessage
+					closeAlert={ closeAlert }
+				/>
 			) }
 
 			<SelectControl

@@ -128,6 +128,11 @@ const MyCustomButton = withState( {
 			>
 				<SynonymSelector
 					originalWord={ setOriginalWord( props ) }
+					closeAlert={ () => {
+						setState( {
+							isChoosingSynonym: false,
+						} );
+					} }
 					newWordSetter={ ( newWord ) => {
 						console.log( `Setting newWord to: ${ newWord }` );
 						switchWord( newWord );
