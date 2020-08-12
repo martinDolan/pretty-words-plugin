@@ -3,6 +3,7 @@ import { Button, SelectControl } from '@wordpress/components';
 import { withState } from '@wordpress/compose';
 import { useEffect } from '@wordpress/element';
 import getChoices from '../utils/getChoices';
+import NoAlternateWordsMessage from './NoAlternateWordsMessage';
 
 const SynonymSelector = withState( {
 	choices: [],
@@ -38,6 +39,7 @@ const SynonymSelector = withState( {
 	return (
 		<>
 
+				<NoAlternateWordsMessage />
 			<SelectControl
 				label={ `Choose word to replace: ${ props.originalWord }` }
 				options={ choices }
