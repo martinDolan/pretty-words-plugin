@@ -6,7 +6,7 @@ import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 import { registerFormatType, toggleFormat } from '@wordpress/rich-text';
 import { useState } from '@wordpress/element';
-import { Popover } from '@wordpress/components';
+import { Popover, Button } from '@wordpress/components';
 import SynonymSelector from './components/SynonymSelector';
 
 const { Fragment } = wp.element;
@@ -83,6 +83,14 @@ const MyCustomButton = withState( {
 				} }
 				className="popover-dialog"
 			>
+				<Button
+					className="components-notice__dismiss"
+					icon="no"
+					onClick={ () => {
+						console.log( 'trying to close' );
+					} }
+				/>
+
 				<SynonymSelector
 					originalWord={ setOriginalWord( props ) }
 					closeAlert={ () => {
