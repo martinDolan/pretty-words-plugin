@@ -60,6 +60,7 @@ const SynonymSelector = withState( {
 
 				<Button
 					disabled={ '' === replacementWord }
+					isPrimary={ true }
 					onClick={ () => {
 
 						newWordSetter( replacementWord );
