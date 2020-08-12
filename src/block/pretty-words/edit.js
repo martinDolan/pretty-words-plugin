@@ -16,32 +16,6 @@ const { PanelBody, PanelRow } = wp.components;
 const { registerStore, select, dispatch, withSelect } = wp.data;
 const { compose, withState } = wp.compose;
 
-// const [ thesaurusWords, setThesaurusWords ] = useState( [] );
-
-const changeThisWord = ( props ) => {
-
-	// console.log( props );
-	// const fullString = props.value.text;
-	// const startChar = props.value.start;
-	// const endChar = props.value.end;
-	// const stringLen = endChar - startChar;
-
-	// const selectedWord = fullString.substr( startChar, stringLen );
-	// console.log( selectedWord );
-
-	// getThesaurusWords( selectedWord );
-
-	// const newFormat = {
-	// 	...props.value, // original formats object.
-	// 	end: endChar,
-	// };
-
-	// props.onChange( toggleFormat(
-	// 	newFormat,
-	// 	{ type: 'my-custom-format/thesaurus-button' }
-	// ) );
-};
-
 const MyCustomButton = withState( {
 	isChoosingSynonym: false,
 } )( ( props ) => {
@@ -58,18 +32,6 @@ const MyCustomButton = withState( {
 		const endChar = props.value.end;
 		const stringLen = endChar - startChar;
 		const selectedWord = fullString.substr( startChar, stringLen );
-
-		// const newFormat = {
-		// 	...props.value, // original formats object.
-		// 	end: endChar,
-		// };
-
-		// props.onChange( toggleFormat(
-		// 	newFormat,
-		// 	{ type: 'my-custom-format/thesaurus-button' }
-		// ) );
-		// console.log( props );
-
 		return selectedWord;
 	};
 
@@ -100,10 +62,6 @@ const MyCustomButton = withState( {
 			{ type: 'my-custom-format/thesaurus-button' }
 		) );
 
-		// console.log( newFormat );
-
-		//set new format
-		// return newFormat;
 	};
 
 	return (
@@ -165,11 +123,6 @@ const Edit = ( props ) => {
 		className,
 		setAttributes,
 	} = props;
-
-	// registerPlugin("thesaurus-moc", [
-	// 	icon,
-	// 	render: menu
-	// ])
 
 	return (
 		<div></div>
