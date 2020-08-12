@@ -83,17 +83,6 @@ const MyCustomButton = withState( {
 				} }
 				className="popover-dialog"
 			>
-				<Button
-					className="components-notice__dismiss"
-					icon="no"
-					onClick={
-						() => {
-							setState( {
-								isChoosingSynonym: false,
-							} );
-						}
-					}
-				/>
 
 				<SynonymSelector
 					originalWord={ setOriginalWord( props ) }
