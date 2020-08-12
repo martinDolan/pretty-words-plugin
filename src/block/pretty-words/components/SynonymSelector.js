@@ -39,6 +39,7 @@ const SynonymSelector = withState( {
 		switchWord,
 		noWordsAvailable,
 		closeAlert,
+		originalWord,
 	} = props;
 
 	let selectControlUi;
@@ -49,7 +50,7 @@ const SynonymSelector = withState( {
 		selectControlUi = (
 			<>
 				<SelectControl
-					label={ `Choose word to replace: ${ props.originalWord }` }
+					label={ `Choose word to replace: ${ originalWord }` }
 					options={ choices }
 					onChange={ ( value ) => {
 						setState( {
