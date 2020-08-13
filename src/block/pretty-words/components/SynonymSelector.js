@@ -1,9 +1,10 @@
 
-import { Button, SelectControl, LinkControl, Panel, PanelBody, PanelRow, Icon } from '@wordpress/components';
+import { Button, SelectControl, LinkControl } from '@wordpress/components';
 import { withState } from '@wordpress/compose';
 import { useEffect } from '@wordpress/element';
 import getChoices from '../utils/getChoices';
 import NoAlternateWordsMessage from './NoAlternateWordsMessage';
+import MoreInfoPanel from './MoreInfoPanel';
 
 const SynonymSelector = withState( {
 	choices: [],
@@ -41,14 +42,6 @@ const SynonymSelector = withState( {
 		closeAlert,
 		originalWord,
 	} = props;
-
-	const MoreInfoPanel = () => (
-		<Panel >
-			<PanelBody title="More" initialOpen={ true }>
-				<PanelRow>Short Cuts</PanelRow>
-			</PanelBody>
-		</Panel>
-	);
 
 	let selectControlUi;
 
