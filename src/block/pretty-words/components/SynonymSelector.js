@@ -1,5 +1,5 @@
 
-import { Button, SelectControl, LinkControl } from '@wordpress/components';
+import { Button, SelectControl, LinkControl, Panel, PanelBody, PanelRow, Icon } from '@wordpress/components';
 import { withState } from '@wordpress/compose';
 import { useEffect } from '@wordpress/element';
 import getChoices from '../utils/getChoices';
@@ -42,6 +42,14 @@ const SynonymSelector = withState( {
 		originalWord,
 	} = props;
 
+	const MoreInfoPanel = () => (
+		<Panel >
+			<PanelBody title="More Options Settings" initialOpen={ false }>
+				<PanelRow>Options</PanelRow>
+			</PanelBody>
+		</Panel>
+	);
+
 	let selectControlUi;
 
 	if ( noWordsAvailable ) {
@@ -73,6 +81,7 @@ const SynonymSelector = withState( {
 				>
 					Use This Word
 				</Button>
+				<MoreInfoPanel />
 			</>
 		);
 	}
