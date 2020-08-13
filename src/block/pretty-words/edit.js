@@ -16,7 +16,7 @@ const { PanelBody, PanelRow } = wp.components;
 const { registerStore, select, dispatch, withSelect } = wp.data;
 const { compose, withState } = wp.compose;
 
-const MyCustomButton = withState( {
+const ThesaurusButton = withState( {
 	isChoosingSynonym: false,
 } )( ( props ) => {
 
@@ -109,7 +109,7 @@ registerFormatType(
 		title: 'Change This',
 		tagName: 'thesaurus',
 		className: null,
-		edit: MyCustomButton,
+		edit: ThesaurusButton,
 	}
 );
 
