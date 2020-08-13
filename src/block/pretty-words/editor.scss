@@ -6,6 +6,11 @@ $color-blue: rgb(33, 175, 194);
 }
 
 .popover-dialog {
+	.components-panel__row {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
 	.components-popover__content {
 		padding: 20px;
 		min-width: 390px;
