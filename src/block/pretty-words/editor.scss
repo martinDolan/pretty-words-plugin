@@ -21,6 +21,15 @@ $color-blue: rgb(33, 175, 194);
 			color: #0070a7;
 		}
 
+		.additional-options {
+			margin-top: 20px;
+
+			&:focus {
+				outline: none;
+    			box-shadow: none;
+			}
+		}
+
 		.components-notice__dismiss {
 			align-self: flex-end;
 		}
