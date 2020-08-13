@@ -73,13 +73,6 @@ const SynonymSelector = withState( {
 				>
 					Use This Word
 				</Button>
-				<Button
-					isLink={ true }
-					className="additional-options"
-					onClick={ console.log( 'someone clicked me' ) }
-				>
-					More Options
-				</Button>
 			</>
 		);
 	}
