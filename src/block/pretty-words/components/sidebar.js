@@ -32,3 +32,4 @@ registerPlugin( 'thesaurus-sidebar', {
 } );
 
 export default ThesaurusSidebar;
+
