@@ -44,7 +44,7 @@ const SynonymSelector = withState( {
 
 	const MoreInfoPanel = () => (
 		<Panel >
-			<PanelBody title="More" initialOpen={ false }>
+			<PanelBody title="More" initialOpen={ true }>
 				<PanelRow>Short Cuts</PanelRow>
 			</PanelBody>
 		</Panel>
