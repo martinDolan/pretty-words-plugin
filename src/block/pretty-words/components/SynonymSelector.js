@@ -1,5 +1,5 @@
 
-import { Button, SelectControl } from '@wordpress/components';
+import { Button, SelectControl, LinkControl } from '@wordpress/components';
 import { withState } from '@wordpress/compose';
 import { useEffect } from '@wordpress/element';
 import getChoices from '../utils/getChoices';
@@ -49,6 +49,7 @@ const SynonymSelector = withState( {
 	} else {
 		selectControlUi = (
 			<>
+
 				<h3>Choose word to replace <span>{ originalWord }</span></h3>
 				<SelectControl
 					label={ `Choose word to replace ${ originalWord }` }
@@ -71,6 +72,13 @@ const SynonymSelector = withState( {
 					} }
 				>
 					Use This Word
+				</Button>
+				<Button
+					isLink={ true }
+					className="additional-options"
+					onClick={ console.log( 'someone clicked me' ) }
+				>
+					More Options
 				</Button>
 			</>
 		);
