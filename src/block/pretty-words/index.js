@@ -3,7 +3,7 @@
  */
 import edit from './edit';
 import save from './save';
-import sidebar from './sidebar';
+import sidebar from './components/sidebar';
 
 // import changeThisWord from './edit';
 // import getThesaurusWords from './edit';
