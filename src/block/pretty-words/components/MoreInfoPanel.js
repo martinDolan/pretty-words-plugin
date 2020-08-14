@@ -1,4 +1,6 @@
-import GetDefinitions from '../utils/GetDefinitions';
+import GetDefinitions from '../utils/getDictionaryEntryData';
+import DictionaryEntry from './DictionaryEntry';
+
 import { withState } from '@wordpress/compose';
 
 const MoreInfoPanel = withState( {
@@ -15,12 +17,13 @@ const MoreInfoPanel = withState( {
 	if ( ! dictionaryInfo ) {
 		output = 'loading';
 	} else {
-		output = 'successfully loaded';
+		output = <DictionaryEntry />;
 	}
 
 	return (
 		<>
 			{ output }
+
 		</>
 	);
 
