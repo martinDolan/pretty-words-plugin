@@ -1,17 +1,29 @@
 import GetDefinitions from '../utils/GetDefinitions';
+import { withState } from '@wordpress/compose';
 
-const MoreInfoPanel = ( props ) => {
+const MoreInfoPanel = withState( {
+	dictionaryInfo: null,
+} )( ( props ) => {
 
-	const { replacementWord } = props;
+	const {
+		dictionaryInfo,
+		replacementWord,
+	} = props;
+
+	let output;
+
+	if ( ! dictionaryInfo ) {
+		output = 'loading';
+	} else {
+		output = 'successfully loaded';
+	}
 
 	return (
-		<div>
-			<GetDefinitions
-				replacementWord={ replacementWord }
-			/>
-		</div>
+		<>
+			{ output }
+		</>
 	);
 
-};
+} );
 
 export default MoreInfoPanel;
