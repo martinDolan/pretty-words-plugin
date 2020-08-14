@@ -2,6 +2,7 @@ import GetDefinitions from '../utils/getDictionaryEntryData';
 import DictionaryEntry from './DictionaryEntry';
 
 import { withState } from '@wordpress/compose';
+import { useEffect } from '@wordpress/element';
 
 const MoreInfoPanel = withState( {
 	dictionaryInfo: null,
@@ -10,7 +11,14 @@ const MoreInfoPanel = withState( {
 	const {
 		dictionaryInfo,
 		replacementWord,
+		setState,
 	} = props;
+
+	useEffect( () => {
+		setState( {
+			dictionaryInfo: {},
+		} );
+	}, [] );
 
 	let output;
 
