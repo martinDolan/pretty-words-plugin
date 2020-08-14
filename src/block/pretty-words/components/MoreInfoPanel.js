@@ -15,10 +15,19 @@ const MoreInfoPanel = withState( {
 	} = props;
 
 	useEffect( () => {
+
+		const { replacementWord } = props;
+		console.log( props );
+
+		if ( ! replacementWord ) {
+			return;
+		}
+
+		getDictionaryEntryData( replacementWord );
 		setState( {
 			dictionaryInfo: {},
 		} );
-	}, [] );
+	}, [ replacementWord ] );
 
 	let output;
 
