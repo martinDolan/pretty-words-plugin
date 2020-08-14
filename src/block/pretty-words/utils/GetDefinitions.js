@@ -7,6 +7,7 @@ const GetDefinitions = ( props ) => {
 	const { replacementWord } = props;
 
 	const response = fetch( `https://www.dictionaryapi.com/api/v3/references/collegiate/json/voluminous?key=${ moconnorPrettyWordsEditor.dictionaryApiDictionaryComKey }` );
+	const response = fetch( `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${ replacementWord }?key=${ moconnorPrettyWordsEditor.dictionaryApiDictionaryComKey }` );
 
 	response.then( ( response ) => response.json() )
 		.then( ( data ) => console.log( data[ 0 ] ) );
