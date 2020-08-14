@@ -65,7 +65,10 @@ function register_block() {
         'moconnorPrettyWordsEditor',
 
          // A key/value array of values to pass from PHP to JavaScript.
-         array( 'dictionaryApiComKey' => constant( 'DICTIONARYAPI_COM_KEY' ) )
+         array(
+			'dictionaryApiThesaurusComKey' => constant( 'DICTIONARYAPI_COM_THESAURUS_KEY' ),
+			'dictionaryApiDictionaryComKey' => constant( 'DICTIONARYAPI_COM_DICTIONARY_KEY' ),
+		)
 	);
 
 	// Register frontend style.
