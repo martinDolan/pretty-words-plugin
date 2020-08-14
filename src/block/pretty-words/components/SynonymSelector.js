@@ -74,7 +74,7 @@ const SynonymSelector = withState( {
 				>
 					Use This Word
 				</Button>
-				<MoreInfoPanel />
+				<MoreInfoPanel replacementWord={ replacementWord } />
 			</>
 		);
 	}
