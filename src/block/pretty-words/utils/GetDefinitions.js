@@ -14,11 +14,8 @@ const GetDefinitions = ( props ) => {
 	};
 	getDefsQuery().then( ( data ) => console.log( data[ 0 ] ) );
 
-	response.then( ( response ) => response.json() )
-		.then( ( data ) => console.log( data[ 0 ] ) );
-	console.log( 'GetDefinitions' );
 	return (
-		<Panel >
+		<Panel>
 			<PanelBody title="More" initialOpen={ true }>
 				<PanelRow>
 					<div className="current-word">{ replacementWord }</div>
