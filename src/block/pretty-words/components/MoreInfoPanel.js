@@ -1,5 +1,5 @@
-import GetDefinitions from '../utils/getDictionaryEntryData';
 import DictionaryEntry from './DictionaryEntry';
+import getDictionaryEntryData from '../utils/getDictionaryEntryData';
 
 import { withState } from '@wordpress/compose';
 import { useEffect } from '@wordpress/element';
