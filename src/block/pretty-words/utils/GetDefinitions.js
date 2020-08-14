@@ -1,13 +1,18 @@
-const GetDefinitions = () => {
-	console.log( 'getting definitions' );
 import { Button, SelectControl, LinkControl, Panel, PanelBody, PanelRow } from '@wordpress/components';
 
 const GetDefinitions = ( props ) => {
 
 	const { replacementWord } = props;
 
-	const response = fetch( `https://www.dictionaryapi.com/api/v3/references/collegiate/json/voluminous?key=${ moconnorPrettyWordsEditor.dictionaryApiDictionaryComKey }` );
-	const response = fetch( `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${ replacementWord }?key=${ moconnorPrettyWordsEditor.dictionaryApiDictionaryComKey }` );
+	const getDefsQuery = async ( queryWord ) => {
+		const response = await fetch( `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${ replacementWord }?key=${ moconnorPrettyWordsEditor.dictionaryApiDictionaryComKey }` );
+
+		const data = await response.json();
+
+		return data;
+
+	};
+	getDefsQuery().then( ( data ) => console.log( data[ 0 ] ) );
 
 	response.then( ( response ) => response.json() )
 		.then( ( data ) => console.log( data[ 0 ] ) );
