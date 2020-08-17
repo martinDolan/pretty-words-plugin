@@ -1,4 +1,5 @@
-import { Button, SelectControl, LinkControl, Panel, PanelBody, PanelRow } from '@wordpress/components';
+import { Panel, PanelBody } from '@wordpress/components';
+import SingleDictionaryEntry from './SingleDictionaryEntry';
 
 const DictionaryEntries = ( { dictionaryInfo } ) => {
 
@@ -6,18 +7,8 @@ const DictionaryEntries = ( { dictionaryInfo } ) => {
 	return (
 		<Panel>
 			<PanelBody title="More" initialOpen={ true }>
-				<PanelRow>
-					<div className="current-word">{ 'acclimate' }</div>
-					<div className="pronunciation">{ 'dictionaryInfo.hwi.hw' }</div>
-					<div className="part-of-speech">{ 'dictionaryInfo.fl' }</div>
-					<div className="definition">{ 'dictionaryInfo.shortdef' }</div>
-				</PanelRow>
-				<PanelRow>
-					<div className="current-word">{ 'acclimate' }</div>
-					<div className="pronunciation">{ 'dictionaryInfo.hwi.hw' }</div>
-					<div className="part-of-speech">{ 'dictionaryInfo.fl' }</div>
-					<div className="definition">{ 'dictionaryInfo.shortdef' }</div>
-				</PanelRow>
+				<SingleDictionaryEntry />
+				<SingleDictionaryEntry />
 			</PanelBody>
 		</Panel>
 	);
