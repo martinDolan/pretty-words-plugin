@@ -1,4 +1,4 @@
-import DictionaryEntry from './DictionaryEntry';
+import DictionaryEntries from './DictionaryEntries';
 import getDictionaryEntryData from '../utils/getDictionaryEntryData';
 
 import { withState } from '@wordpress/compose';
@@ -35,7 +35,9 @@ const MoreInfoPanel = withState( {
 	if ( 0 === dictionaryInfo.length ) {
 		output = 'loading';
 	} else {
-		output = <DictionaryEntry />;
+		output = <DictionaryEntries
+			dictionaryInfo={ dictionaryInfo }
+		/>;
 	}
 
 	return (

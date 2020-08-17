@@ -1,7 +1,8 @@
 import { Button, SelectControl, LinkControl, Panel, PanelBody, PanelRow } from '@wordpress/components';
 
-const DictionaryEntry = () => {
+const DictionaryEntries = ( { dictionaryInfo } ) => {
 
+	console.log( 'DictionaryEntries: ', dictionaryInfo );
 	return (
 		<Panel>
 			<PanelBody title="More" initialOpen={ true }>
@@ -22,5 +23,4 @@ const DictionaryEntry = () => {
 	);
 };
 
-export default DictionaryEntry;
-
+export default DictionaryEntries;
