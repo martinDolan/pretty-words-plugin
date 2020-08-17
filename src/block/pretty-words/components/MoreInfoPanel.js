@@ -21,7 +21,14 @@ const MoreInfoPanel = withState( {
 			return;
 		}
 
-		getDictionaryEntryData( replacementWord );
+		getDictionaryEntryData( replacementWord )
+			.then(
+				( dictionaryInfo ) => {
+					setState( {
+						dictionaryInfo,
+					} );
+				}
+			);
 	}, [ replacementWord ] );
 
 	let output;
