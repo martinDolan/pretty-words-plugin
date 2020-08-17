@@ -16,7 +16,6 @@ const MoreInfoPanel = withState( {
 
 	useEffect( () => {
 
-		const { replacementWord } = props;
 		if ( ! replacementWord ) {
 			return;
 		}
