@@ -5,7 +5,7 @@ import { withState } from '@wordpress/compose';
 import { useEffect } from '@wordpress/element';
 
 const MoreInfoPanel = withState( {
-	dictionaryInfo: null,
+	dictionaryInfo: [],
 } )( ( props ) => {
 
 	const {
@@ -17,21 +17,16 @@ const MoreInfoPanel = withState( {
 	useEffect( () => {
 
 		const { replacementWord } = props;
-		console.log( props );
-
 		if ( ! replacementWord ) {
 			return;
 		}
 
 		getDictionaryEntryData( replacementWord );
-		setState( {
-			dictionaryInfo: {},
-		} );
 	}, [ replacementWord ] );
 
 	let output;
 
-	if ( ! dictionaryInfo ) {
+	if ( 0 === dictionaryInfo.length ) {
 		output = 'loading';
 	} else {
 		output = <DictionaryEntry />;
