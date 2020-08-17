@@ -7,8 +7,18 @@ const DictionaryEntries = ( { dictionaryInfo } ) => {
 	return (
 		<Panel>
 			<PanelBody title="More" initialOpen={ true }>
-				<SingleDictionaryEntry />
-				<SingleDictionaryEntry />
+				{
+					dictionaryInfo.map( ( entry ) =>
+						<SingleDictionaryEntry
+							currentWord={ 'current word' }
+							definition={ entry.shortdef }
+							key={ entry.meta.uuid }
+							partOfSpeech={ entry.fl }
+							pronunciation={ entry.hwi.hw }
+						/>
+					)
+				}
+
 			</PanelBody>
 		</Panel>
 	);
