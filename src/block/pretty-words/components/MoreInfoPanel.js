@@ -37,6 +37,7 @@ const MoreInfoPanel = withState( {
 	} else {
 		output = <DictionaryEntries
 			dictionaryInfo={ dictionaryInfo }
+			replacementWord={ replacementWord }
 		/>;
 	}
 

@@ -1,16 +1,16 @@
 import { Panel, PanelBody } from '@wordpress/components';
 import SingleDictionaryEntry from './SingleDictionaryEntry';
 
-const DictionaryEntries = ( { dictionaryInfo } ) => {
-
-	console.log( 'DictionaryEntries: ', dictionaryInfo );
+const DictionaryEntries = ( props ) => {
+	const { dictionaryInfo, replacementWord } = props;
+	console.log( props );
 	return (
 		<Panel>
 			<PanelBody title="More" initialOpen={ true }>
 				{
 					dictionaryInfo.map( ( entry ) =>
 						<SingleDictionaryEntry
-							currentWord={ 'current word' }
+							currentWord={ replacementWord }
 							definition={ entry.shortdef }
 							key={ entry.meta.uuid }
 							partOfSpeech={ entry.fl }
